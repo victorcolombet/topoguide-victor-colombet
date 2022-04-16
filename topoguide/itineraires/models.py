@@ -1,4 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
+
 
 class Itineraire(models.Model):
     title = models.CharField(max_length=200)
@@ -10,14 +12,14 @@ class Itineraire(models.Model):
     height_dif_pos = models.IntegerField(default=0)
     height_dif_neg = models.IntegerField(default=0)
     duration = models.DurationField()
-    difficulty = models.IntegerField(choices = [1,2,3,4,5])
+    difficulty = models.CharField(choices = [('1', '1'),('2', '2'),('3','3'),('4', '4'),('5','5')], max_length=3)
 
 class Sortie(models.Model):
-    user = models.ForeignKey('user', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     itineraire = models.ForeignKey(Itineraire, on_delete=models.CASCADE)
     date = models.DateField()
     duration = models.DurationField()
     people = models.IntegerField(default = 1)
-    group_exp = models.CharField(choices= ['tous débutants', 'tous expérimentés', 'mixte'] )
-    weather = models.CharField(choices = ['bonne', 'moyenne', 'mauvaise'])
-    difficulty = models.IntegerField(choices = [1,2,3,4,5])
+    group_exp = models.CharField(choices= [('tous débutants','tous débutants'), ('tous expérimentés','tous expérimentés'), ('mixte','mixte' )], max_length=100 )
+    weather = models.CharField(choices = [('bonne','bonne'), ('moyenne','moyenne'), ('mauvaise','mauvaise')], max_length=100)
+    difficulty = models.CharField(choices = [('1', '1'),('2', '2'),('3','3'),('4', '4'),('5','5')], max_length=3)

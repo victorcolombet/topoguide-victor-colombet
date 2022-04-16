@@ -1,0 +1,21 @@
+<!doctype html>
+
+<html>
+<head>
+Liste des itinéraires:
+</head>
+
+<body>
+
+    {% if itineraires_list %}
+    <ul>
+    {% for itineraire in itineraires_list %}
+    <li><p>{{itineraire.title }}</p></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No itineraire are available.</p>
+    {% endif %}
+
+</body>
+</html>

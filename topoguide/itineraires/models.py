@@ -13,6 +13,9 @@ class Itineraire(models.Model):
     height_dif_neg = models.IntegerField(default=0)
     duration = models.DurationField()
     difficulty = models.CharField(choices = [('1', '1'),('2', '2'),('3','3'),('4', '4'),('5','5')], max_length=3)
+        
+    def __str__(self):
+        return self.name 
 
 class Sortie(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -23,3 +26,6 @@ class Sortie(models.Model):
     group_exp = models.CharField(choices= [('tous débutants','tous débutants'), ('tous expérimentés','tous expérimentés'), ('mixte','mixte' )], max_length=100 )
     weather = models.CharField(choices = [('bonne','bonne'), ('moyenne','moyenne'), ('mauvaise','mauvaise')], max_length=100)
     difficulty = models.CharField(choices = [('1', '1'),('2', '2'),('3','3'),('4', '4'),('5','5')], max_length=3)
+    
+    def __str__(self):
+        return self.name 

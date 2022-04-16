@@ -1,0 +1,30 @@
+
+<!doctype html>
+
+<html>
+<head>
+
+<h1>Sorties            : {{ itineraire.title }}</h1>
+</head>
+
+<body>
+
+<table>
+    <tr>
+        <th>Par</th>
+        <th>Date</th>
+        <th></th>
+    </tr>
+    {% for sortie in itineraire.sortie_set.all %}
+        <tr>
+            <td>{{ sortie.user }}</td>
+            <td>{{ sortie.date }}</td>
+            <td> </td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+
+</body>
+</html>

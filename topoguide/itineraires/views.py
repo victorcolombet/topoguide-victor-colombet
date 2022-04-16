@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 
-from topoguide.itineraires.models import Itineraire
+from itineraires.models import Itineraire
+from itineraires.models import Sortie
 
 # Create your views here.
 

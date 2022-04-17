@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 
 from itineraires.models import Itineraire
@@ -16,4 +17,7 @@ def sorties(request, itineraire_id):
 
 def sortie(request, sortie_id):
     sortie = get_object_or_404(Sortie, pk=sortie_id)
-    return render(request,'itineraires/sortie.html', {'sortie' : sortie} )   
+    return render(request,'itineraires/sortie.html', {'sortie' : sortie} )
+
+def nouvelle_sortie(request):
+    return HttpResponse("Ceci est le formulaire de saisie d'une sortie")

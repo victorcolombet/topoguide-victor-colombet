@@ -2,20 +2,45 @@
 
 <html>
 <head>
-Liste des itinéraires:
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'itineraires/itineraires.css' %}">
+
+    <h1>Itineraires</h1>
 </head>
 
 <body>
 
-    {% if itineraires_list %}
-    <ul>
-    {% for itineraire in itineraires_list %}
-    <li><p>{{itineraire.title }}</p></li>
-    {% endfor %}
-    </ul>
-    {% else %}
+
+<div class="transbox">
+
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Départ</th>
+            <th>Durée estimée</th>
+            <th>Difficultée estimée</th>
+        </tr>
+
+        {% if itineraires_list %}
+    
+            {% for itineraire in itineraires_list %}
+
+                <tr>
+                    <td><a href="{% url 'itineraires:sorties' itineraire.id %}">{{itineraire.title}}</a></td>
+                    <td>{{itineraire.departure}}</td>
+                    <td>{{itineraire.duration}}</td>
+                    <td>{{itineraire.difficulty}}/5</td>
+                </tr>
+
+            {% endfor %}
+
+        {% else %}
         <p>No itineraire are available.</p>
-    {% endif %}
+        {% endif %}
+    </table>
+
+</div>
 
 </body>
 </html>

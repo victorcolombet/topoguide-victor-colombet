@@ -3,28 +3,41 @@
 
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'itineraires/sorties.css' %}">
 
-<h1>Sorties            : {{ itineraire.title }}</h1>
+
+<h1>Sorties  {{ itineraire.title }}</h1>
 </head>
 
 <body>
 
-<table>
-    <tr>
-        <th>Par</th>
-        <th>Date</th>
-        <th></th>
-    </tr>
-    {% for sortie in itineraire.sortie_set.all %}
+<div class="transbox">
+
+    <table>
         <tr>
-            <td>{{ sortie.user }}</td>
-            <td>{{ sortie.date }}</td>
-            <td> </td>
+            <th>Par</th>
+            <th>Date</th>
+            <th></th>
         </tr>
-    {% endfor %}
 
-</table>
+        {% if itineraire.sortie_set.all %}
 
+            {% for sortie in itineraire.sortie_set.all %}
+                <tr>
+                    <td>{{ sortie.user }}</td>
+                    <td>{{ sortie.date }}</td>
+                    <td><a href="{% url 'itineraires:sortie' sortie.id %}">Consulter</a></td>
+                </tr>
+            {% endfor %}
+        
+        {% else %}
+        <p> Il n'y a pas de sorties pour cet itineraire.</p>
+        {% endif %}
 
+    </table>
+
+</div>
 </body>
 </html>

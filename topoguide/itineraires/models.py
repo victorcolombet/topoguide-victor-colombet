@@ -15,7 +15,7 @@ class Itineraire(models.Model):
     difficulty = models.CharField(choices = [('1', '1'),('2', '2'),('3','3'),('4', '4'),('5','5')], max_length=3)
         
     def __str__(self):
-        return self.name 
+        return self.title
 
 class Sortie(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -28,4 +28,4 @@ class Sortie(models.Model):
     difficulty = models.CharField(choices = [('1', '1'),('2', '2'),('3','3'),('4', '4'),('5','5')], max_length=3)
     
     def __str__(self):
-        return self.name 
+        return self.itineraire.title + " by " + self.user.username  

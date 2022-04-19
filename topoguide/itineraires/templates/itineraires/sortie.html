@@ -21,6 +21,7 @@
         <ul>
             <li class="left"><a class="active"  href="{% url 'itineraires:itineraires' %}">Itinéraires</a></li>
             <li class="left"><a href="{% url 'itineraires:sorties' sortie.itineraire.id %}">Retour à la liste de sorties</a></li>
+            <li class="left"><a href="{% url 'nouvelle_sortie' %}">Ajouter une nouvelle sortie</a></li>
             <li class="right"><a href="{% url 'logout' %}">Se déconnecter</a></li>
         </ul>
     

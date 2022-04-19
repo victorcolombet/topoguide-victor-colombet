@@ -1,6 +1,8 @@
 head{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    color: white;
+    text-align: center;
     
 }
 
@@ -8,6 +10,31 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("images/background.gif");
     background-size: cover;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(54, 58, 51);
+}
+
+.sidebar li.right {
+    float: right;
+}
+
+.sidebar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.sidebar li a:hover {
+    background-color: #111;
 }
 
 

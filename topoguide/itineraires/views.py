@@ -1,9 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
 
 from itineraires.models import Itineraire
 from itineraires.models import Sortie
+from itineraires.forms import *
 
 # Create your views here.
 
@@ -25,4 +28,12 @@ def sortie(request, sortie_id):
 
 @login_required()
 def nouvelle_sortie(request):
-    return HttpResponse("Ceci est le formulaire de saisie d'une sortie")
+    
+    if request.method == 'POST':
+        form = SortieForm(request.POST)
+        if form.is_valid():
+            form.user = request.user
+            form.save()
+    elif request.method == 'GET':
+        form = SortieForm()
+    return render(request, 'itineraires/nouvelle_sortie.html', {'form' : form})

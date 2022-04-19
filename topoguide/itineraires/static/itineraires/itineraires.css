@@ -20,6 +20,10 @@ body{
     background-color: rgb(54, 58, 51);
 }
 
+.sidebar li.left {
+    float: left;
+}
+
 .sidebar li.right {
     float: right;
 }

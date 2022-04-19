@@ -15,38 +15,36 @@
 
 <div class="sidebar">
     <ul>
-        <li><a class="active"  href="{% url 'itineraires:itineraires' %}">Itinéraires</a></li>
-        <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+        <li class="left"><a class="active"  href="{% url 'itineraires:itineraires' %}">Itinéraires</a></li>
+        <li class="right"><a href="{% url 'logout' %}">Se déconnecter</a></li>
     </ul>
 
 </div>
 
 
 <div class="transbox">
+    {% if itineraire.sortie_set.all %}
 
-    <table>
-        <tr>
-            <th>Par</th>
-            <th>Date</th>
-            <th></th>
-        </tr>
+        <table>
+            <tr>
+                <th>Par</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
 
-        {% if itineraire.sortie_set.all %}
+                {% for sortie in itineraire.sortie_set.all %}
+                    <tr>
+                        <td>{{ sortie.user }}</td>
+                        <td>{{ sortie.date }}</td>
+                        <td><a href="{% url 'itineraires:sortie' sortie.id %}">Consulter</a></td>
+                    </tr>
+                {% endfor %}
 
-            {% for sortie in itineraire.sortie_set.all %}
-                <tr>
-                    <td>{{ sortie.user }}</td>
-                    <td>{{ sortie.date }}</td>
-                    <td><a href="{% url 'itineraires:sortie' sortie.id %}">Consulter</a></td>
-                </tr>
-            {% endfor %}
-        
-        {% else %}
-        <p> Il n'y a pas de sorties pour cet itineraire.</p>
-        {% endif %}
+        </table>
 
-    </table>
-
+    {% else %}
+        <p>Il n'y a pas de sorties pour cet itineraire.</p>
+    {% endif %}
 </div>
 </body>
 </html>

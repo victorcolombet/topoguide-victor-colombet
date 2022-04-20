@@ -1,17 +1,10 @@
 
 <!doctype html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'itineraires/sorties.css' %}">
+{% extends 'itineraires/base.html' %}
 
-
+{% block body %}
 <h1>Sorties  {{ itineraire.title }}</h1>
-</head>
-
-<body>
 
 <div class="sidebar">
     <ul>
@@ -26,7 +19,7 @@
 <div class="transbox">
     {% if itineraire.sortie_set.all %}
 
-        <table>
+        <table class = "table">
             <tr>
                 <th>Par</th>
                 <th>Date</th>
@@ -47,5 +40,5 @@
         <p>Il n'y a pas de sorties pour cet itineraire.</p>
     {% endif %}
 </div>
-</body>
-</html>
+{% endblock body %}
+

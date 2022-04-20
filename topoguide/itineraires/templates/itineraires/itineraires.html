@@ -1,16 +1,10 @@
 <!doctype html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'itineraires/itineraires.css' %}">
+{% extends 'itineraires/base.html' %}
 
-    <h1>Itineraires</h1>
-</head>
+{% block body  %}
 
-<body>
-
+<h1>Itineraires</h1>
 
 <div class="sidebar">
     <ul>
@@ -22,7 +16,7 @@
 
 <div class="transbox">
 
-    <table>
+    <table class = "table">
         <tr>
             <th>Nom</th>
             <th>Départ</th>
@@ -50,5 +44,4 @@
 
 </div>
 
-</body>
-</html>
+{% endblock body  %}

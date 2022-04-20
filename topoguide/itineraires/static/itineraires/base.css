@@ -1,0 +1,70 @@
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("images/background.gif");
+    background-size: cover;
+}
+
+
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(54, 58, 51);
+}
+
+.sidebar li.left {
+    float: left;
+}
+
+.sidebar li.right {
+    float: right;
+}
+
+.sidebar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.sidebar li a:hover {
+    background-color: #111;
+}
+
+
+.transbox{
+    margin: 10px;
+    background-color: white;
+    border: 1px solid black;
+    opacity: 0.7;
+}
+
+.transbox.table{
+    border: 1px solid black;
+    text-align: center;
+    width: 90%;
+
+}
+
+tr{
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+th{
+    border-bottom: 1px solid black;
+    font-weight: bold;
+
+}

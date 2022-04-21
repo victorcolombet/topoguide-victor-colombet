@@ -19,6 +19,7 @@ h2{
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin: 10px;
 }
 
 h3{
@@ -26,6 +27,7 @@ h3{
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin: 20px;
 }
 
 
@@ -33,7 +35,17 @@ h3{
     margin: 10px;
     background-color: white;
     border: 1px solid black;
-    opacity: 0.7;
+    opacity: 0.85;
+}
+
+.transbox p{
+    color:black;
+    text-align: justify;
+    margin: 10px;
+}
+
+.transbox table{
+    margin: 10 px
 }
 
 

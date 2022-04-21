@@ -6,12 +6,21 @@
 
     <h1>Modifier la sortie {{ sortie.itineraire.title }}</h1>
 
-    <form method="post" action="{% url 'itineraires:modif_sortie' form.instance.id %}">
-        {% csrf_token %}
-        
-        {{ form }}
-        
-        <input type="submit" value="Modifier la sortie">
-    </form>
+    <div class="transbox">
+
+    {% if request.user != sortie.user %}
+    <p>You are not the user corresponding to the sortie. Thus, you cannot modify it.</p>
+
+    {% else %}
+        <form method="post" action="{% url 'itineraires:modif_sortie' form.instance.id %}">
+            {% csrf_token %}
+            
+            {{ form }}
+            
+            <input type="submit" value="Modifier la sortie">
+        </form>
+    {% endif %}
+
+    </div>
 
 {% endblock body %}

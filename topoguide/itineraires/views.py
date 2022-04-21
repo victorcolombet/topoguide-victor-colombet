@@ -46,7 +46,7 @@ def modif_sortie(request, sortie_id):
         form = ModifSortieForm(instance=sortie)
     elif request.method == 'POST':
         form = ModifSortieForm(request.POST, instance=sortie)
-        if form.is_valid():
+        if form.is_valid() and sortie.user == request.user:
             modif_sortie = form.save(commit=False)
             modif_sortie.user = request.user
             modif_sortie.save()

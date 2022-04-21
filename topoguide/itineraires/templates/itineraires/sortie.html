@@ -26,6 +26,9 @@
             <a class="nav-link" href="{% url 'itineraires:nouvelle_sortie' %}">Ajouter une nouvelle sortie</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'itineraires:modif_sortie' sortie.id %}">Modifier la sortie</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Se déconnecter</a>
           </li>
         </ul>

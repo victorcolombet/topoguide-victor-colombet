@@ -7,3 +7,8 @@ class SortieForm(ModelForm):
     class Meta:
         model = Sortie
         fields = ['itineraire', 'date', 'duration', 'people', 'group_exp', 'weather', 'difficulty']
+
+class ModifSortieForm(ModelForm):
+    class Meta:
+        model = Sortie
+        fields = ['itineraire', 'date', 'duration', 'people', 'group_exp', 'weather', 'difficulty']

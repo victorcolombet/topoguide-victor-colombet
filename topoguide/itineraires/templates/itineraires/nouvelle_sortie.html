@@ -1,20 +1,17 @@
 <!doctype html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'itineraires/nouvelle_sortie.css' %}">
+
+{% extends 'itineraires/base.html' %}
+
+{% block body %}
 
     <h1>Ajouter une sortie {{ sortie.itineraire.title }}</h1>
-
-</head>
-
-<body>
 
     <form method="post" action="{% url 'itineraires:nouvelle_sortie' %}">
         {% csrf_token %}
         
-        {{ form}}
+        {{ form }}
         
         <input type="submit" value="Ajout d'une sortie">
     </form>
+
+{% endblock body %}

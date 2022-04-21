@@ -30,28 +30,75 @@
 
 
 <div class="transbox">
-    {% if itineraire.sortie_set.all %}
 
-        <table class = "table">
-            <tr>
-                <th>Par</th>
-                <th>Date</th>
-                <th></th>
-            </tr>
+  <p>{{itineraire.description}}</p>
 
-                {% for sortie in itineraire.sortie_set.all %}
-                    <tr>
-                        <td>{{ sortie.user }}</td>
-                        <td>{{ sortie.date }}</td>
-                        <td><a href="{% url 'itineraires:sortie' sortie.id %}">Consulter</a></td>
-                    </tr>
-                {% endfor %}
+  <table class = "table">
+    <tr>
+        <th>Lieu de départ</th>
+        <td>{{itineraire.departure}}</td>
+    </tr>
+    
+    <tr>
+        <th>Altitude de départ</th>
+        <td>{{itineraire.altitude_dep}} mètres</td>
+    </tr>
 
-        </table>
+    <tr>
+        <th>Altitude minimale</th>
+        <td>{{itineraire.altitude_min}} mètres</td>
+    </tr>
 
-    {% else %}
-        <p>Il n'y a pas de sorties pour cet itineraire.</p>
-    {% endif %}
+    <tr>
+        <th>Altitude maximale</th>
+        <td>{{itineraire.altitude_max}} mètres</td>
+    </tr>
+
+    <tr>
+        <th>Dénivelé positif</th>
+        <td>+{{itineraire.height_dif_pos}} mètres</td>
+    </tr>   
+
+    <tr>
+        <th>Dénivelé négatif</th>
+        <td>-{{itineraire.height_dif_neg}} mètres</td>
+    </tr>
+
+    <tr>
+      <th>Durée estimée</th>
+      <td>{{itineraire.duration}}(h:min:sec)</td>
+    </tr>
+
+    <tr>
+      <th>Difficultée</th>
+      <td>{{itineraire.difficulty}}/5</td>
+    </tr>
+
+</table>
+
+
+  {% if itineraire.sortie_set.all %}
+
+      <table class = "table">
+          <tr>
+              <th>Par</th>
+              <th>Date</th>
+              <th></th>
+          </tr>
+
+              {% for sortie in itineraire.sortie_set.all %}
+                  <tr>
+                      <td>{{ sortie.user }}</td>
+                      <td>{{ sortie.date }}</td>
+                      <td><a href="{% url 'itineraires:sortie' sortie.id %}">Consulter</a></td>
+                  </tr>
+              {% endfor %}
+
+      </table>
+
+  {% else %}
+      <p>Il n'y a pas de sorties pour cet itineraire.</p>
+  {% endif %}
 </div>
 {% endblock body %}
 

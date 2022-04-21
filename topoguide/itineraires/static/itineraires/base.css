@@ -21,6 +21,13 @@ h2{
     margin-bottom: 10px;
 }
 
+h3{
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
 .transbox{
     margin: 10px;

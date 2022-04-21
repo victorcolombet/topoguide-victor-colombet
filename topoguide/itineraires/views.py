@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
@@ -32,8 +32,10 @@ def nouvelle_sortie(request):
     if request.method == 'POST':
         form = SortieForm(request.POST)
         if form.is_valid():
-            form.user = request.user
-            form.save()
+            nouvelle_sortie = form.save(commit=False)
+            nouvelle_sortie.user = request.user
+            nouvelle_sortie.save()
+            return redirect('/itineraires/')
     elif request.method == 'GET':
         form = SortieForm()
     return render(request, 'itineraires/nouvelle_sortie.html', {'form' : form})

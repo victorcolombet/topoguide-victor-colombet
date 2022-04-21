@@ -13,9 +13,8 @@
 
     <form method="post" action="{% url 'itineraires:nouvelle_sortie' %}">
         {% csrf_token %}
-        {% for field in form %}
-            {{ field.label_tag }} {{ field }}<br>
-        {% endfor %}  
         
-        <input type="submit" value="Submit">
+        {{ form}}
+        
+        <input type="submit" value="Ajout d'une sortie">
     </form>
